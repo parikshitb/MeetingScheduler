@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler", "MeetingScheduler\MeetingScheduler.csproj", "{409A0EA8-86F6-4E5A-8B9A-3150B01F0D42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D10D42F0-46BB-4F7F-A247-56A0EDB479E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{0FAF46AF-D115-4DBC-AD1A-0EF12931D417}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "New Folder", "New Folder", "{FB5C89CD-DFA9-4EC6-B569-6F516FBCF742}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Contract", "MeetingScheduler.Contract\MeetingScheduler.Contract.csproj", "{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Implementation", "MeetingScheduler.Implementation\MeetingScheduler.Implementation.csproj", "{3D7BFBD4-50D6-4249-A143-525DEEE6D827}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{409A0EA8-86F6-4E5A-8B9A-3150B01F0D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409A0EA8-86F6-4E5A-8B9A-3150B01F0D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409A0EA8-86F6-4E5A-8B9A-3150B01F0D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409A0EA8-86F6-4E5A-8B9A-3150B01F0D42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D7BFBD4-50D6-4249-A143-525DEEE6D827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D7BFBD4-50D6-4249-A143-525DEEE6D827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D7BFBD4-50D6-4249-A143-525DEEE6D827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D7BFBD4-50D6-4249-A143-525DEEE6D827}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{409A0EA8-86F6-4E5A-8B9A-3150B01F0D42} = {D10D42F0-46BB-4F7F-A247-56A0EDB479E6}
+		{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C} = {0FAF46AF-D115-4DBC-AD1A-0EF12931D417}
+		{3D7BFBD4-50D6-4249-A143-525DEEE6D827} = {FB5C89CD-DFA9-4EC6-B569-6F516FBCF742}
+	EndGlobalSection
+EndGlobal
