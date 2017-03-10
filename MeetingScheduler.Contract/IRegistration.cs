@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MeetingScheduler.Contract
+﻿namespace MeetingScheduler.Contract
 {
-    interface IRegistration
+    public interface IRegistration
     {
+        string SignUp(string username, string password);
     }
 }

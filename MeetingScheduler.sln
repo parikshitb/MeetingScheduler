@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Contract",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Implementation", "MeetingScheduler.Implementation\MeetingScheduler.Implementation.csproj", "{3D7BFBD4-50D6-4249-A143-525DEEE6D827}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{5D3FB8E3-6F07-4219-9890-DA158551840B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Entity", "MeetingScheduler.Entity\MeetingScheduler.Entity.csproj", "{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,10 @@ Global
 		{3D7BFBD4-50D6-4249-A143-525DEEE6D827}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D7BFBD4-50D6-4249-A143-525DEEE6D827}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D7BFBD4-50D6-4249-A143-525DEEE6D827}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,5 +49,6 @@ Global
 		{409A0EA8-86F6-4E5A-8B9A-3150B01F0D42} = {D10D42F0-46BB-4F7F-A247-56A0EDB479E6}
 		{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C} = {0FAF46AF-D115-4DBC-AD1A-0EF12931D417}
 		{3D7BFBD4-50D6-4249-A143-525DEEE6D827} = {FB5C89CD-DFA9-4EC6-B569-6F516FBCF742}
+		{AA18C3E4-6622-46B5-97A2-E514BCE7CE27} = {5D3FB8E3-6F07-4219-9890-DA158551840B}
 	EndGlobalSection
 EndGlobal

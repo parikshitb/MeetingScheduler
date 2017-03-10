@@ -48,6 +48,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="StructureMap, Version=4.4.3.564, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.4.3\lib\net45\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -107,6 +111,20 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MeetingScheduler.Contract\MeetingScheduler.Contract.csproj">
+      <Project>{afc3c3df-6781-4e3d-b27e-a66b4b1fc25c}</Project>
+      <Name>MeetingScheduler.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MeetingScheduler.Entity\MeetingScheduler.Entity.csproj">
+      <Project>{aa18c3e4-6622-46b5-97a2-e514bce7ce27}</Project>
+      <Name>MeetingScheduler.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MeetingScheduler.Implementation\MeetingScheduler.Implementation.csproj">
+      <Project>{3d7bfbd4-50d6-4249-a143-525deee6d827}</Project>
+      <Name>MeetingScheduler.Implementation</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
