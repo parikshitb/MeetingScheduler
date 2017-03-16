@@ -1,7 +1,9 @@
-﻿namespace MeetingScheduler.Contract
+﻿using MeetingScheduler.Entity;
+
+namespace MeetingScheduler.Contract
 {
     public interface IRegistration
     {
-        string SignUp(string username, string password);
+        string SignUp(Visitor visitor);
     }
 }

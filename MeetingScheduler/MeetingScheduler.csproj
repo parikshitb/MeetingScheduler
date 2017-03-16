@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\publish-ms.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -124,6 +125,22 @@
     <ProjectReference Include="..\MeetingScheduler.Implementation\MeetingScheduler.Implementation.csproj">
       <Project>{3d7bfbd4-50d6-4249-a143-525deee6d827}</Project>
       <Name>MeetingScheduler.Implementation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MeetingScheduler.Persistence.Contract\MeetingScheduler.Persistence.Contract.csproj">
+      <Project>{f53bf7ac-2a04-4aef-921a-599499f07efa}</Project>
+      <Name>MeetingScheduler.Persistence.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MeetingScheduler.Repository.Contract\MeetingScheduler.Repository.Contract.csproj">
+      <Project>{BA75E38D-D9ED-4673-92A4-648DA9383107}</Project>
+      <Name>MeetingScheduler.Repository.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MeetingScheduler.Repository\MeetingScheduler.Repository.csproj">
+      <Project>{196F7DE1-9086-4665-AB75-2F32D8F2071C}</Project>
+      <Name>MeetingScheduler.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MeetingScheduler.SQL\MeetingScheduler.SQL.csproj">
+      <Project>{7f92fe64-159a-4296-9e0e-760402db868d}</Project>
+      <Name>MeetingScheduler.SQL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

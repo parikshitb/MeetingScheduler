@@ -19,6 +19,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{5D3FB8E3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Entity", "MeetingScheduler.Entity\MeetingScheduler.Entity.csproj", "{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{BC432F44-3D10-44CD-8E6B-5FAA8FE72BFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.SQL", "MeetingScheduler.SQL\MeetingScheduler.SQL.csproj", "{7F92FE64-159A-4296-9E0E-760402DB868D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Persistence.Contract", "MeetingScheduler.Persistence.Contract\MeetingScheduler.Persistence.Contract.csproj", "{F53BF7AC-2A04-4AEF-921A-599499F07EFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{6EF6D504-20FB-4336-885D-DFA0A4F38D5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Repository", "MeetingScheduler.Repository\MeetingScheduler.Repository.csproj", "{196F7DE1-9086-4665-AB75-2F32D8F2071C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Repository.Contract", "MeetingScheduler.Repository.Contract\MeetingScheduler.Repository.Contract.csproj", "{BA75E38D-D9ED-4673-92A4-648DA9383107}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +53,22 @@ Global
 		{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F92FE64-159A-4296-9E0E-760402DB868D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F92FE64-159A-4296-9E0E-760402DB868D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F92FE64-159A-4296-9E0E-760402DB868D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F92FE64-159A-4296-9E0E-760402DB868D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F53BF7AC-2A04-4AEF-921A-599499F07EFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F53BF7AC-2A04-4AEF-921A-599499F07EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F53BF7AC-2A04-4AEF-921A-599499F07EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F53BF7AC-2A04-4AEF-921A-599499F07EFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{196F7DE1-9086-4665-AB75-2F32D8F2071C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{196F7DE1-9086-4665-AB75-2F32D8F2071C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{196F7DE1-9086-4665-AB75-2F32D8F2071C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{196F7DE1-9086-4665-AB75-2F32D8F2071C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA75E38D-D9ED-4673-92A4-648DA9383107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA75E38D-D9ED-4673-92A4-648DA9383107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA75E38D-D9ED-4673-92A4-648DA9383107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA75E38D-D9ED-4673-92A4-648DA9383107}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +78,9 @@ Global
 		{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C} = {0FAF46AF-D115-4DBC-AD1A-0EF12931D417}
 		{3D7BFBD4-50D6-4249-A143-525DEEE6D827} = {FB5C89CD-DFA9-4EC6-B569-6F516FBCF742}
 		{AA18C3E4-6622-46B5-97A2-E514BCE7CE27} = {5D3FB8E3-6F07-4219-9890-DA158551840B}
+		{7F92FE64-159A-4296-9E0E-760402DB868D} = {BC432F44-3D10-44CD-8E6B-5FAA8FE72BFF}
+		{F53BF7AC-2A04-4AEF-921A-599499F07EFA} = {BC432F44-3D10-44CD-8E6B-5FAA8FE72BFF}
+		{196F7DE1-9086-4665-AB75-2F32D8F2071C} = {6EF6D504-20FB-4336-885D-DFA0A4F38D5D}
+		{BA75E38D-D9ED-4673-92A4-648DA9383107} = {6EF6D504-20FB-4336-885D-DFA0A4F38D5D}
 	EndGlobalSection
 EndGlobal

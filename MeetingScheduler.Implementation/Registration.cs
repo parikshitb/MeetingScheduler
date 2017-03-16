@@ -1,12 +1,22 @@
 ﻿using MeetingScheduler.Contract;
+using MeetingScheduler.Entity;
+using MeetingScheduler.Repository.Contract;
+using System.Collections.Generic;
 
 namespace MeetingScheduler.Implementation
 {
     public class Registration : IRegistration
     {
-        public string SignUp(string username, string password)
+        private readonly IRepository repository;
+        public Registration(IRepository repository)
         {
-            return "Link to the homepage. Use this username : " + username;
+            this.repository = repository;
         }
+        public string SignUp(Visitor visitor)
+        {
+            var userId = repository.Insert<Visitor>(visitor, "SIGNUP");
+            return userId.ToString();
+        }
+
     }
 }

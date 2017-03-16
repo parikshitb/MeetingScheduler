@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C}</ProjectGuid>
+    <ProjectGuid>{7F92FE64-159A-4296-9E0E-760402DB868D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MeetingScheduler.Contract</RootNamespace>
-    <AssemblyName>MeetingScheduler.Contract</AssemblyName>
+    <RootNamespace>MeetingScheduler.SQL</RootNamespace>
+    <AssemblyName>MeetingScheduler.SQL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,13 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IRegistration.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="ConnectionConfig.cs" />
+    <Compile Include="DataAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MeetingScheduler.Entity\MeetingScheduler.Entity.csproj">
-      <Project>{AA18C3E4-6622-46B5-97A2-E514BCE7CE27}</Project>
-      <Name>MeetingScheduler.Entity</Name>
+    <ProjectReference Include="..\MeetingScheduler.Persistence.Contract\MeetingScheduler.Persistence.Contract.csproj">
+      <Project>{F53BF7AC-2A04-4AEF-921A-599499F07EFA}</Project>
+      <Name>MeetingScheduler.Persistence.Contract</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

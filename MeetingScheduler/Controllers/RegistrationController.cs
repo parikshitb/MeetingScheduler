@@ -20,7 +20,7 @@ namespace MeetingScheduler.Controllers
         [HttpPost]
         public string SignUp(Visitor visitor)
         {
-            return registration.SignUp(visitor.Username, visitor.Password);
+            return registration.SignUp(visitor);
         }
     }
 }

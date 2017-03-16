@@ -52,6 +52,10 @@
       <Project>{aa18c3e4-6622-46b5-97a2-e514bce7ce27}</Project>
       <Name>MeetingScheduler.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MeetingScheduler.Repository.Contract\MeetingScheduler.Repository.Contract.csproj">
+      <Project>{BA75E38D-D9ED-4673-92A4-648DA9383107}</Project>
+      <Name>MeetingScheduler.Repository.Contract</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

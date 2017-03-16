@@ -1,15 +1,27 @@
-﻿using System;
+﻿using MeetingScheduler.Contract;
+using MeetingScheduler.Implementation;
+using MeetingScheduler.Persistence.Contract;
+using MeetingScheduler.Repository;
+using MeetingScheduler.Repository.Contract;
+using MeetingScheduler.SQL;
+using StructureMap;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace MeetingScheduler.StructureMap
 {
-    public class DependencyRegistry
+    public class DependencyRegistry : Registry
     {
-        //When there are more dependencies,
-        //remover dependency registration from WebApiConfig.cs
-        //and move 'em all here.
-        //Then, register this registry with container.
+        public DependencyRegistry()
+        {
+            //For<IConnection>().Use<Connection>().Ctor<string>(new ConnectionConfig().GetConnectionStringForDevEnv());
+            For<IConnection>().Use<Connection>().Ctor<string>("connectionString").Is(new ConnectionConfig().GetConnectionStringForDevEnv());
+            For<IRegistration>().Use<Registration>();
+            For<IDataAccess>().Use<DataAccess>();
+            For<IQueryManagement>().Use<SqlQueryManagement>();
+            For<IRepository>().Use<SqlRepositoy>();
+        }
     }
 }
