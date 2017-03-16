@@ -5,10 +5,6 @@ using MeetingScheduler.Repository;
 using MeetingScheduler.Repository.Contract;
 using MeetingScheduler.SQL;
 using StructureMap;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace MeetingScheduler.StructureMap
 {
@@ -16,7 +12,6 @@ namespace MeetingScheduler.StructureMap
     {
         public DependencyRegistry()
         {
-            //For<IConnection>().Use<Connection>().Ctor<string>(new ConnectionConfig().GetConnectionStringForDevEnv());
             For<IConnection>().Use<Connection>().Ctor<string>("connectionString").Is(new ConnectionConfig().GetConnectionStringForDevEnv());
             For<IRegistration>().Use<Registration>();
             For<IDataAccess>().Use<DataAccess>();

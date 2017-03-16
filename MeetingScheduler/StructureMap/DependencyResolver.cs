@@ -11,7 +11,7 @@ namespace MeetingScheduler.StructureMap
         {
             if (container == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(container));
             }
             this.container = container;
         }

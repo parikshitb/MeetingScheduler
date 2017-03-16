@@ -14,7 +14,7 @@ namespace MeetingScheduler.SQL
         public SqlConnection conn;
         public DataAccess(IConnection con)
         {
-            conn = con.GetConnection();
+            conn = (SqlConnection)con.GetConnection();
         }
         //Connection and transaction
         public void CloseConnection()
@@ -25,9 +25,13 @@ namespace MeetingScheduler.SQL
             }
         }
         public void BeginTransaction()
-        { }
+        {
+            throw new NotImplementedException();
+        }
         public void EndTransaction()
-        { }
+        {
+            throw new NotImplementedException();
+        }
         private SqlCommand PrepareCommand(string query, ICollection<KeyValuePair<string,object>> param)
         {
             conn.Open();
@@ -59,7 +63,6 @@ namespace MeetingScheduler.SQL
         public IList<object> Select(string query, IList<KeyValuePair<string, object>> param)
         {
             throw new NotImplementedException();
-
         }
     }
 }

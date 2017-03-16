@@ -1,5 +1,6 @@
 ﻿using MeetingScheduler.Persistence.Contract;
 using MeetingScheduler.Repository.Contract;
+using System;
 
 namespace MeetingScheduler.Repository
 {
@@ -9,6 +10,11 @@ namespace MeetingScheduler.Repository
         private readonly IDataAccess dataAccess;
         public SqlRepositoy(IQueryManagement queryManagement, IDataAccess dataAccess)
         {
+            if (queryManagement == null)
+                throw new ArgumentNullException(nameof(queryManagement));
+            if (dataAccess == null)
+                throw new ArgumentException(nameof(dataAccess));
+
             this.queryManagement = queryManagement;
             this.dataAccess = dataAccess;
         }

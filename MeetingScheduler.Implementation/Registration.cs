@@ -1,7 +1,7 @@
 ﻿using MeetingScheduler.Contract;
 using MeetingScheduler.Entity;
 using MeetingScheduler.Repository.Contract;
-using System.Collections.Generic;
+using System;
 
 namespace MeetingScheduler.Implementation
 {
@@ -10,6 +10,10 @@ namespace MeetingScheduler.Implementation
         private readonly IRepository repository;
         public Registration(IRepository repository)
         {
+            if (repository == null)
+            {
+                throw new ArgumentNullException(nameof(repository));
+            }
             this.repository = repository;
         }
         public string SignUp(Visitor visitor)

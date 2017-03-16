@@ -1,9 +1,9 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
 
 namespace MeetingScheduler.Persistence.Contract
 {
     public interface IConnection
     {
-        SqlConnection GetConnection();
+        IDbConnection GetConnection();
     }
 }

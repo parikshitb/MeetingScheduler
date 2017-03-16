@@ -13,6 +13,7 @@ namespace MeetingScheduler
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            //1. Setting up StructureMap and DependencyResolver
             var registry = new Registry();
             registry.IncludeRegistry<DependencyRegistry>();
             var container = new Container(registry);

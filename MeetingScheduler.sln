@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D10D42F0-46B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interface", "Interface", "{0FAF46AF-D115-4DBC-AD1A-0EF12931D417}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "New Folder", "New Folder", "{FB5C89CD-DFA9-4EC6-B569-6F516FBCF742}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic", "Business Logic", "{FB5C89CD-DFA9-4EC6-B569-6F516FBCF742}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeetingScheduler.Contract", "MeetingScheduler.Contract\MeetingScheduler.Contract.csproj", "{AFC3C3DF-6781-4E3D-B27E-A66B4B1FC25C}"
 EndProject

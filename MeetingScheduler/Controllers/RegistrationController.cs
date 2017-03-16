@@ -12,7 +12,7 @@ namespace MeetingScheduler.Controllers
         {
             if (registration == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException(nameof(registration));
             }
             this.registration = registration;
         }
