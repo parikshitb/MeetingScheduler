@@ -4,6 +4,6 @@ namespace MeetingScheduler.Contract
 {
     public interface IRegistration
     {
-        string SignUp(Visitor visitor);
+        int SignUp(Visitor visitor);
     }
 }

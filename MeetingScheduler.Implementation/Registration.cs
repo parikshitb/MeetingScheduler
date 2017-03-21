@@ -16,10 +16,10 @@ namespace MeetingScheduler.Implementation
             }
             this.repository = repository;
         }
-        public string SignUp(Visitor visitor)
+        public int SignUp(Visitor visitor)
         {
-            var userId = repository.Insert<Visitor>(visitor, "SIGNUP");
-            return userId.ToString();
+            var userId = repository.Insert(visitor, "SIGNUP");
+            return userId;
         }
 
     }

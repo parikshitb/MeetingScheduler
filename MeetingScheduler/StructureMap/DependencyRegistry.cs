@@ -1,10 +1,12 @@
-﻿using MeetingScheduler.Contract;
+﻿using MeetingScheduler.Authentication.Contract;
+using MeetingScheduler.Contract;
 using MeetingScheduler.Implementation;
 using MeetingScheduler.Persistence.Contract;
 using MeetingScheduler.Repository;
 using MeetingScheduler.Repository.Contract;
 using MeetingScheduler.SQL;
 using StructureMap;
+using MeetingScheduler.Authentication;
 
 namespace MeetingScheduler.StructureMap
 {
@@ -17,6 +19,7 @@ namespace MeetingScheduler.StructureMap
             For<IDataAccess>().Use<DataAccess>();
             For<IQueryManagement>().Use<SqlQueryManagement>();
             For<IRepository>().Use<SqlRepositoy>();
+            For<IToken>().Use<Jwt>();
         }
     }
 }
