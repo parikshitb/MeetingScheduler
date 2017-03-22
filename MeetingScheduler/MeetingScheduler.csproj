@@ -92,6 +92,8 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MeetingController.cs" />
+    <Compile Include="Controllers\MeetingRegistrationController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Filter\AuthenticationFailureResult.cs" />
     <Compile Include="Filter\AuthenticationFilter.cs" />

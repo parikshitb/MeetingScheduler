@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using MeetingScheduler.Persistence.Contract;
+using System.Data;
 
 namespace MeetingScheduler.SQL
 {
@@ -63,6 +64,17 @@ namespace MeetingScheduler.SQL
         public IList<object> Select(string query, IList<KeyValuePair<string, object>> param)
         {
             throw new NotImplementedException();
+        }
+
+        public IDataReader ExecuteDataReader(string query, ICollection<KeyValuePair<string, object>> param)
+        {
+            SqlDataReader dr = null;
+            using (SqlCommand cmd = PrepareCommand(query, param))
+            {
+                dr =cmd.ExecuteReader();    
+            }
+            CloseConnection();
+            return dr;
         }
     }
 }

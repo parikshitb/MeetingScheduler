@@ -3,6 +3,7 @@ using MeetingScheduler.Contract;
 using MeetingScheduler.Entity;
 using System;
 using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 
 namespace MeetingScheduler.Controllers
@@ -34,5 +35,7 @@ namespace MeetingScheduler.Controllers
             else
                 throw new HttpResponseException(HttpStatusCode.Unauthorized);
         }
+
+        
     }
 }

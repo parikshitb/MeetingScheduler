@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IMeetingHandler.cs" />
     <Compile Include="IRegistration.cs" />
     <Compile Include="IUserSignIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

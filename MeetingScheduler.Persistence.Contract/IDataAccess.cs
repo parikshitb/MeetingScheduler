@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 
 namespace MeetingScheduler.Persistence.Contract
 {
@@ -8,5 +9,6 @@ namespace MeetingScheduler.Persistence.Contract
         //IList<object> Select(string query, ICollection<KeyValuePair<string, object>> param);
 
         //object ExecuteScalar(string query, ICollection<KeyValuePair<string, object>> param);
+        IDataReader ExecuteDataReader(string query, ICollection<KeyValuePair<string, object>> param);
     }
 }

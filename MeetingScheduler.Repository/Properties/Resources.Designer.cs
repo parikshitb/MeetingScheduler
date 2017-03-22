@@ -61,11 +61,80 @@ namespace MeetingScheduler.Repository.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO Meeting(Title, [Description], [Time], CreatedBy)
+        ///  VALUES(@Title, @Description, @Time, @CreatedBy).
+        /// </summary>
+        internal static string CREATE_MEETING {
+            get {
+                return ResourceManager.GetString("CREATE_MEETING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM Meeting WHERE MeetingId = @MeetingId.
+        /// </summary>
+        internal static string DELETE_MEETING {
+            get {
+                return ResourceManager.GetString("DELETE_MEETING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT [MeetingId]
+        ///      ,[Title]
+        ///      ,[Description]
+        ///      ,[Time]
+        ///      ,[CreatedBy] 
+        ///  FROM [MeetingScheduler].[dbo].[Meeting].
+        /// </summary>
+        internal static string SELECT_ALL_MEETING {
+            get {
+                return ResourceManager.GetString("SELECT_ALL_MEETING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT [MeetingId]
+        ///      ,[Title]
+        ///      ,[Description]
+        ///      ,[Time]
+        ///      ,[CreatedBy] 
+        ///  FROM [MeetingScheduler].[dbo].[Meeting]
+        /// WHERE [MeetingId] = @MeetingId.
+        /// </summary>
+        internal static string SELECT_MEETING {
+            get {
+                return ResourceManager.GetString("SELECT_MEETING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT UserId AS &apos;UserId&apos;, Username AS &apos;Username&apos;, Password AS &apos;Password&apos;
+        ///FROM [User] WHERE Username = @Username.
+        /// </summary>
+        internal static string SIGNIN {
+            get {
+                return ResourceManager.GetString("SIGNIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to INSERT INTO [User] (Username, [Password]) VALUES (@Username, @Password).
         /// </summary>
         internal static string SIGNUP {
             get {
                 return ResourceManager.GetString("SIGNUP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE Meeting
+        ///  SET Title = @Title, [Description] = @Description, [Time] = @Time
+        ///  WHERE MeetingId = @MeetingId.
+        /// </summary>
+        internal static string UPDATE_MEETING {
+            get {
+                return ResourceManager.GetString("UPDATE_MEETING", resourceCulture);
             }
         }
     }
