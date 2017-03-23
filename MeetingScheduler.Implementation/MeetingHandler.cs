@@ -1,38 +1,44 @@
 ﻿using MeetingScheduler.Contract;
+using MeetingScheduler.Entity;
+using MeetingScheduler.Repository.Contract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MeetingScheduler.Entity;
 
 namespace MeetingScheduler.Implementation
 {
     public class MeetingHandler : IMeetingHandler
     {
-        public Meeting CreateMeeting(Meeting meeting)
+        private readonly IRepository repository;
+        public MeetingHandler(IRepository repository)
         {
-            throw new NotImplementedException();
+            if (repository == null)
+                throw new ArgumentNullException(nameof(repository));
+            this.repository = repository;
+        }
+        public int CreateMeeting(Meeting meeting)
+        {
+            return repository.Insert(meeting, "CREATE_MEETING");
         }
 
         public int DeleteMeeting(int meetingId)
         {
-            throw new NotImplementedException();
+            return repository.Delete(meetingId, "DELETE_MEETING");
         }
 
         public IEnumerable<Meeting> GetAllMeetings()
         {
-            throw new NotImplementedException();
+            return repository.Select<object, Meeting>(null, "GET_ALL_MEETINGS");
         }
 
         public Meeting GetMeeting(int meetingId)
         {
-            throw new NotImplementedException();
+            return repository.Select<int, Meeting>(meetingId, "GET_MEETING").FirstOrDefault();
         }
 
-        public Meeting UpdateMeeting(Meeting meeting)
+        public int UpdateMeeting(Meeting meeting)
         {
-            throw new NotImplementedException();
+            return repository.Update(meeting, "UPDATE_MEETING"); 
         }
     }
 }

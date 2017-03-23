@@ -1,4 +1,6 @@
-﻿using MeetingScheduler.Contract;
+﻿using MeetingScheduler.Authentication;
+using MeetingScheduler.Contract;
+using MeetingScheduler.Filter;
 using MeetingScheduler.Implementation;
 using MeetingScheduler.Persistence.Contract;
 using MeetingScheduler.SQL;
@@ -18,6 +20,9 @@ namespace MeetingScheduler
             registry.IncludeRegistry<DependencyRegistry>();
             var container = new Container(registry);
             GlobalConfiguration.Configuration.DependencyResolver = new DependencyResolver(container);
+
+            //2. Filters
+            config.Filters.Add(new AuthenticationFilter(new Jwt()));
 
             // Web API routes
             config.MapHttpAttributeRoutes();

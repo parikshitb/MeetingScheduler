@@ -80,6 +80,24 @@ namespace MeetingScheduler.Repository.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO Registration(MeetingId, UserId) VALUES (@MeetingId, @UserId).
+        /// </summary>
+        internal static string MEETING_REGISTER {
+            get {
+                return ResourceManager.GetString("MEETING_REGISTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM Registration WHERE UserId=@UserId AND MeetingId=@MeetingId.
+        /// </summary>
+        internal static string MEETING_UNREGISTER {
+            get {
+                return ResourceManager.GetString("MEETING_UNREGISTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT [MeetingId]
         ///      ,[Title]
         ///      ,[Description]
@@ -87,9 +105,9 @@ namespace MeetingScheduler.Repository.Properties {
         ///      ,[CreatedBy] 
         ///  FROM [MeetingScheduler].[dbo].[Meeting].
         /// </summary>
-        internal static string SELECT_ALL_MEETING {
+        internal static string SELECT_ALL_MEETINGS {
             get {
-                return ResourceManager.GetString("SELECT_ALL_MEETING", resourceCulture);
+                return ResourceManager.GetString("SELECT_ALL_MEETINGS", resourceCulture);
             }
         }
         

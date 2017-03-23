@@ -10,5 +10,6 @@ namespace MeetingScheduler.Persistence.Contract
 
         //object ExecuteScalar(string query, ICollection<KeyValuePair<string, object>> param);
         IDataReader ExecuteDataReader(string query, ICollection<KeyValuePair<string, object>> param);
+        void CloseConnection();
     }
 }

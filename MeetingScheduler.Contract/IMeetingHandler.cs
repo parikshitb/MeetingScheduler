@@ -9,8 +9,8 @@ namespace MeetingScheduler.Contract
 {
     public interface IMeetingHandler
     {
-        Meeting CreateMeeting(Meeting meeting);
-        Meeting UpdateMeeting(Meeting meeting);
+        int CreateMeeting(Meeting meeting);
+        int UpdateMeeting(Meeting meeting);
         int DeleteMeeting(int meetingId);
 
         Meeting GetMeeting(int meetingId);

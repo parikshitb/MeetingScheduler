@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection;
 
 namespace MeetingScheduler.Repository
 {
@@ -24,48 +25,57 @@ namespace MeetingScheduler.Repository
 
         public int Insert<T>(T businessEntity, string operationKey)
         {
-            var query = queryManagement.GetQueryFromResource(operationKey);
-            var param = queryManagement.GetParameters(businessEntity);
-
-            return dataAccess.Execute(query, param);
+            return ExecuteQuery(businessEntity, operationKey);
         }
-        
-        public IEnumerable<Tout> Select<Tin, Tout>(Tin businessEntity, string operationKey)
+        public int Delete<T>(T persistenceId, string operationKey)
+        {
+            return ExecuteQuery(persistenceId, operationKey);
+        }
+        public int Update<T>(T businessEntity, string operationKey)
+        {
+            return ExecuteQuery(businessEntity, operationKey);
+        }
+        public IEnumerable<Tout> Select<Tin, Tout>(Tin businessEntity, string operationKey) where Tout :class
         {
             var query = queryManagement.GetQueryFromResource(operationKey);
             var param = queryManagement.GetParameters(businessEntity);
 
             var dr = (SqlDataReader)dataAccess.ExecuteDataReader(query, param);
-            return PrepareOutput<Tout>(dr);
-        }
 
-        private IEnumerable<T> PrepareOutput<T>(SqlDataReader dr)
-        {
             while (dr.Read())
-            {
-                yield return BuildEntity<T>(dr);
-            }
-
+                yield return BuildEntity<Tout>(dr);
         }
 
-        private T BuildEntity<T>(this IDataRecord record)
+        private int ExecuteQuery<T>(T businessEntity, string operationKey)
         {
-            var properties = typeof(T).GetProperties();
-            foreach (var property in properties)
-            {
-                property.SetValue()
-            }
-            for (int i = 0; i < record.FieldCount; i++)
-            {
-                if (properties[record[0].)
-                {
+            var query = queryManagement.GetQueryFromResource(operationKey);
+            var param = queryManagement.GetParameters(businessEntity);
 
+            return dataAccess.Execute(query, param);
+        }
+        private static T BuildEntity<T>(IDataRecord record) where T : class
+        {
+            var instance = (T)Activator.CreateInstance(typeof(T));
+            var properties = instance.GetType().GetProperties();
+            foreach (PropertyInfo property in properties)
+            {
+                if ((!property.PropertyType.IsGenericType || 
+                    property.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>)) 
+                    && property.CanWrite)
+                {
+                    if (record.HasColumn(property.Name))
+                    {
+                        object propertyValue = record[property.Name];
+                        if (DBNull.Value.Equals(propertyValue))
+                            propertyValue = null;
+                        else
+                            propertyValue = Convert.ChangeType(propertyValue, property.PropertyType);
+                        property.SetValue(instance, propertyValue, null);
+                    }
                 }
             }
-            foreach (var item in (sqlDataRecord)record)
-            {
-
-            }
+            return instance;
+            
         }
     }
 }

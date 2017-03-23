@@ -124,7 +124,13 @@
   <data name="DELETE_MEETING" xml:space="preserve">
     <value>DELETE FROM Meeting WHERE MeetingId = @MeetingId</value>
   </data>
-  <data name="SELECT_ALL_MEETING" xml:space="preserve">
+  <data name="MEETING_REGISTER" xml:space="preserve">
+    <value>INSERT INTO Registration(MeetingId, UserId) VALUES (@MeetingId, @UserId)</value>
+  </data>
+  <data name="MEETING_UNREGISTER" xml:space="preserve">
+    <value>DELETE FROM Registration WHERE UserId=@UserId AND MeetingId=@MeetingId</value>
+  </data>
+  <data name="SELECT_ALL_MEETINGS" xml:space="preserve">
     <value>SELECT [MeetingId]
       ,[Title]
       ,[Description]

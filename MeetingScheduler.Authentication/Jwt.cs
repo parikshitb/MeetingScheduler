@@ -39,7 +39,7 @@ namespace MeetingScheduler.Authentication
             var validationParam = new TokenValidationParameters()
             {
                 RequireExpirationTime = true,
-                ValidateIssuer = true,
+                ValidateIssuer = false,
                 ValidateAudience = false,
                 IssuerSigningKey = new SymmetricSecurityKey(Convert.FromBase64String(AuthenticationConstants.JWT_KEY))
             };

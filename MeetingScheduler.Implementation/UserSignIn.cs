@@ -28,10 +28,8 @@ namespace MeetingScheduler.Implementation
             //Call repository and check if user and password match.
             //create token and return
             var dbUser = repository.Select<User, User>(user, "SIGNIN").FirstOrDefault();
-            if (dbUser.Password == user.Password)
-            {
+            if (dbUser != null)
                 return dbUser.UserId;
-            }
             throw new Exception("Incorrect User or Password");
         }
     }

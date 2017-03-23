@@ -32,11 +32,11 @@ CREATE TABLE [dbo].[Meeting](
 ) 
 
 GO
-CREATE TABLE [dbo].[MeetingDetails](
-	[MeetingDetailsId] [int] IDENTITY(1,1) NOT NULL,
+CREATE TABLE [dbo].[Registration](
+	[RegistrationId] [int] IDENTITY(1,1) NOT NULL,
 	[MeetingId] [int] NOT NULL,
 	[UserId] [int] NOT NULL,
-	CONSTRAINT PK_MeetingDetails PRIMARY KEY(MeetingDetailsId),
-	CONSTRAINT FK_MeetingDetails_Meeting FOREIGN KEY(MeetingId) REFERENCES Meeting(MeetingId),
-	CONSTRAINT FK_MeetingDetails_User FOREIGN KEY(UserId) REFERENCES [User](UserId)
+	CONSTRAINT PK_Registration PRIMARY KEY(RegistrationId),
+	CONSTRAINT FK_Registration_Meeting FOREIGN KEY(MeetingId) REFERENCES Meeting(MeetingId),
+	CONSTRAINT FK_Registration_User FOREIGN KEY(UserId) REFERENCES [User](UserId)
 )

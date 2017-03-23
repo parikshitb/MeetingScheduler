@@ -15,11 +15,14 @@ namespace MeetingScheduler.StructureMap
         public DependencyRegistry()
         {
             For<IConnection>().Use<Connection>().Ctor<string>("connectionString").Is(new ConnectionConfig().GetConnectionStringForDevEnv());
-            For<IRegistration>().Use<Registration>();
             For<IDataAccess>().Use<DataAccess>();
             For<IQueryManagement>().Use<SqlQueryManagement>();
             For<IRepository>().Use<SqlRepositoy>();
             For<IToken>().Use<Jwt>();
+
+            For<IMeetingHandler>().Use<MeetingHandler>();
+            For<IRegistration>().Use<Registration>();
+            For<IUserSignIn>().Use<UserSignIn>();
         }
     }
 }

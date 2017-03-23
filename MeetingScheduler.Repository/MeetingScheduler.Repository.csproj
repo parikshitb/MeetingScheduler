@@ -46,6 +46,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="SqlExtensions.cs" />
     <Compile Include="SqlQueryManagement.cs" />
     <Compile Include="SqlRepositoy.cs" />
   </ItemGroup>

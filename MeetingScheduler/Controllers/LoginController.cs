@@ -2,10 +2,6 @@
 using MeetingScheduler.Contract;
 using MeetingScheduler.Entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace MeetingScheduler.Controllers
@@ -24,8 +20,9 @@ namespace MeetingScheduler.Controllers
             this.tokenHandler = tokenHandler;
         }
         
+        [AllowAnonymous]
         [HttpPost]
-        public HttpResponseMessage SignIn(User user)
+        public string SignIn(User user)
         {
             //Return : 
 
@@ -35,10 +32,9 @@ namespace MeetingScheduler.Controllers
                 jwt = tokenHandler.CreateToken(user.Username);
             if (!string.IsNullOrEmpty(jwt))
             {
-                
-
+                return jwt;
             }
-            return new HttpResponseMessage();
+            throw new Exception();
         }
 
     }

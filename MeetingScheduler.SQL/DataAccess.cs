@@ -13,6 +13,7 @@ namespace MeetingScheduler.SQL
     public class DataAccess : IDataAccess
     {
         public SqlConnection conn;
+        public SqlCommand cmd;
         public DataAccess(IConnection con)
         {
             conn = (SqlConnection)con.GetConnection();
@@ -22,7 +23,11 @@ namespace MeetingScheduler.SQL
         {
             if (conn != null)
             {
-                conn.Close();
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+                conn.Dispose();
             }
         }
         public void BeginTransaction()
@@ -47,7 +52,7 @@ namespace MeetingScheduler.SQL
         public int Execute(string query, ICollection<KeyValuePair<string, object>> param)
         {
             int rowsAffected=-1;
-
+            
             using (SqlCommand cmd = PrepareCommand(query, param))
             {
                 rowsAffected = cmd.ExecuteNonQuery();
@@ -68,13 +73,14 @@ namespace MeetingScheduler.SQL
 
         public IDataReader ExecuteDataReader(string query, ICollection<KeyValuePair<string, object>> param)
         {
-            SqlDataReader dr = null;
             using (SqlCommand cmd = PrepareCommand(query, param))
             {
-                dr =cmd.ExecuteReader();    
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);    
             }
-            CloseConnection();
-            return dr;
         }
+
+        //_________________________________________//
+
+        //_________________________________________//
     }
 }

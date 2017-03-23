@@ -1,16 +1,13 @@
 ﻿using MeetingScheduler.Authentication.Contract;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http.Filters;
 
 namespace MeetingScheduler.Filter
 {
-    public class AuthenticationFilter : IAuthenticationFilter
+    public class AuthenticationFilter : Attribute, IAuthenticationFilter
     {
         private readonly IToken tokenHandler;
         public AuthenticationFilter(IToken tokenHandler)
