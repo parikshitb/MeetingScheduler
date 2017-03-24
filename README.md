@@ -2,7 +2,7 @@
 Simple meetings scheduler application to create and register/unregister for meetings. 
 - - - - 
 ### Technology : ### 
-C#, ASP.Net Web API 2, MSSQL, StructureMap, Jason Web Token(JWT).
+C#, ASP.Net Web API 2, MSSQL, StructureMap, JSON Web Token(JWT).
 
 ### Objective : ###
 1. Study and use .net technology : ASP.Net Web API 2(complete pipeline, Filters, IdentityModel implementaion etc.)
