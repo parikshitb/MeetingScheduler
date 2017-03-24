@@ -29,7 +29,7 @@ Due to time constraint some things are not implemented or taken care of during t
 1. Add unit tests and follow Test Driven Development(TDD)
 2. One click installation : Write a batch/shell file which will install the application completely, ready to use.
 3. Add UI.
-4. Code cleanup, commenting and possible expansion of the aplication with added or remaining functionality.
+
 
 ### Note ###
 For a simple CRUD operation like this, layered architecture is surely an overkill so there might be some non-adherence to standard practices.
