@@ -6,12 +6,17 @@ namespace MeetingScheduler.Repository
 {
     public class SqlQueryManagement : IQueryManagement
     {
+        //This can not work like this. Same method for Select as well as Insert/Update/Delete
+        //where parameters must be sent seperately.
+        //In other words, need to distinguish between command and query. Refer CQRS pattern
         public IDictionary<string, object> GetParameters<T>(T businessEntity)
-        {
+        {   //Something wrong with tis method. Not very clean.
+            //A generic method should not check if the type is Simple
+            //Method overload is maybe a better option here.
             var param = new Dictionary<string, object>();
             var properties = typeof(T).GetProperties();
             if (typeof(T).IsSimpleType())
-                param.Add("@" + properties[0].Name, properties[0].GetValue(businessEntity));
+                param.Add("@" + nameof(businessEntity), businessEntity);
             else
             {
                 foreach (var property in properties)

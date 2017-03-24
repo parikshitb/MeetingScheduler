@@ -18,6 +18,7 @@ namespace MeetingScheduler.Implementation
         }
         public int CreateMeeting(Meeting meeting)
         {
+            meeting.CreatedBy = 2; //This is userId of logged in user. Take it out from CurrentPrincipal.
             return repository.Insert(meeting, "CREATE_MEETING");
         }
 
@@ -28,12 +29,12 @@ namespace MeetingScheduler.Implementation
 
         public IEnumerable<Meeting> GetAllMeetings()
         {
-            return repository.Select<object, Meeting>(null, "GET_ALL_MEETINGS");
+            return repository.Select<object, Meeting>(null, "SELECT_ALL_MEETINGS");
         }
 
         public Meeting GetMeeting(int meetingId)
         {
-            return repository.Select<int, Meeting>(meetingId, "GET_MEETING").FirstOrDefault();
+            return repository.Select<int, Meeting>(meetingId, "SELECT_MEETING").FirstOrDefault();
         }
 
         public int UpdateMeeting(Meeting meeting)
