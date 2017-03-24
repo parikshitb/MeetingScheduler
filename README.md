@@ -5,7 +5,7 @@ Simple meetings scheduler application to create and register/unregister for meet
 C#, ASP.Net Web API 2, MSSQL, StructureMap, Jason Web Token(JWT).
 
 ### Objective : ###
-1. Use .net technology : ASP.Net Web API 2
+1. Study and use .net technology : ASP.Net Web API 2(complete pipeline, Filters, IdentityModel implementaion etc.)
 2. To prepare a layered project structure which uses loosely coupled modules that interact with each other.
 3. Proper use of object oriented fundamentals and SOLID principles.
 4. Make application ready to be unit tested using MSTest or any other test project so as to follow Test Driven Development(TDD).
