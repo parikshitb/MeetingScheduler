@@ -3,7 +3,6 @@ using MeetingScheduler.Contract;
 using MeetingScheduler.Entity;
 using System;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace MeetingScheduler.Controllers
@@ -22,18 +21,14 @@ namespace MeetingScheduler.Controllers
             this.tokenHandler = tokenHandler;
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public string SignUp(Visitor visitor)
         {
             var userId = registration.SignUp(visitor);
-            string jwt = null;
             if (userId > 0)
-                jwt = tokenHandler.CreateToken(visitor.Username);
-            if (!string.IsNullOrWhiteSpace(jwt))
-                return jwt;
+                return "/api/login";
             else
-                throw new HttpResponseException(HttpStatusCode.Unauthorized);
+                throw new HttpResponseException(HttpStatusCode.PreconditionFailed);
         }
 
         

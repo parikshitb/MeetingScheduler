@@ -1,21 +1,17 @@
-﻿using MeetingScheduler.Authentication.Contract;
+﻿using MeetingScheduler.Authentication;
 using System;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http.Filters;
 
 namespace MeetingScheduler.Filter
 {
-    public class AuthenticationFilter : Attribute, IAuthenticationFilter
+    public class CustomAuthenticationFilter : Attribute, IAuthenticationFilter
     {
-        private readonly IToken tokenHandler;
-        public AuthenticationFilter(IToken tokenHandler)
-        {
-            this.tokenHandler = tokenHandler;
-        }
         public bool AllowMultiple => false;
-        
+
         public async Task AuthenticateAsync(HttpAuthenticationContext context, CancellationToken cancellationToken)
         {
             var request = context.Request;
@@ -32,11 +28,22 @@ namespace MeetingScheduler.Filter
             if (principal == null)
                 context.ErrorResult = new AuthenticationFailureResult("Invalid username or password", request);
             else
+            {
                 context.Principal = principal;
+                SetPrincipal(principal);
+            }
         }
-
+        private void SetPrincipal(IPrincipal principal)
+        {
+            Thread.CurrentPrincipal = principal;
+            if (HttpContext.Current != null) //web hosting
+            {
+                HttpContext.Current.User = principal;
+            }
+        }
         private Task<IPrincipal> AuthenticateJwt(string token)
         {
+            var tokenHandler = new Jwt();
             IPrincipal principal = tokenHandler.VerifyToken(token);
             return Task.FromResult(principal);
         }

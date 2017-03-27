@@ -1,13 +1,10 @@
 ﻿using MeetingScheduler.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+using MeetingScheduler.Filter;
 using System.Web.Http;
 
 namespace MeetingScheduler.Controllers
 {
+    [CustomAuthenticationFilter]
     public class MeetingRegistrationController : ApiController
     {
         public MeetingRegistrationController()

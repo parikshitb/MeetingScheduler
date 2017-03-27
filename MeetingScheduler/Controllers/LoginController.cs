@@ -19,8 +19,7 @@ namespace MeetingScheduler.Controllers
             this.userSignIn = userSignIn;
             this.tokenHandler = tokenHandler;
         }
-        
-        [AllowAnonymous]
+
         [HttpPost]
         public string SignIn(User user)
         {
