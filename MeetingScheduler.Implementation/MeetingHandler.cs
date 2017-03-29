@@ -18,28 +18,41 @@ namespace MeetingScheduler.Implementation
         }
         public int CreateMeeting(Meeting meeting)
         {
-            meeting.CreatedBy = 2; //This is userId of logged in user. Take it out from CurrentPrincipal.
-            return repository.Insert(meeting, "CREATE_MEETING");
+            var param = new Dictionary<string, object>();
+            param.Add(nameof(meeting.Title), meeting.Title);
+            param.Add(nameof(meeting.Description), meeting.Description);
+            param.Add(nameof(meeting.Time), meeting.Time);
+            param.Add(nameof(meeting.CreatedBy), 2); //Take userId of logged in user from Thread.CurrentPrincipal
+            return repository.ExecuteCommand("CREATE_MEETING", param);
         }
 
         public int DeleteMeeting(int meetingId)
         {
-            return repository.Delete(meetingId, "DELETE_MEETING");
+            var param = new Dictionary<string, object>();
+            param.Add("MeetingId", meetingId);
+            return repository.ExecuteCommand("DELETE_MEETING", param); 
         }
 
         public IEnumerable<Meeting> GetAllMeetings()
         {
-            return repository.Select<object, Meeting>(null, "SELECT_ALL_MEETINGS");
+            return repository.ExecuteQuery<Meeting>("SELECT_ALL_MEETINGS", null);
         }
 
         public Meeting GetMeeting(int meetingId)
         {
-            return repository.Select<int, Meeting>(meetingId, "SELECT_MEETING").FirstOrDefault();
+            var param = new Dictionary<string, object>();
+            param.Add("MeetingId", meetingId);
+            return repository.ExecuteQuery<Meeting>("SELECT_MEETING", param).FirstOrDefault();
         }
 
         public int UpdateMeeting(Meeting meeting)
         {
-            return repository.Update(meeting, "UPDATE_MEETING"); 
+            var param = new Dictionary<string, object>();
+            param.Add(nameof(meeting.Title), meeting.Title);
+            param.Add(nameof(meeting.Description), meeting.Description);
+            param.Add(nameof(meeting.Time), meeting.Time);
+            param.Add(nameof(meeting.MeetingId), meeting.MeetingId);
+            return repository.ExecuteCommand("UPDATE_MEETING", param);
         }
     }
 }

@@ -23,36 +23,6 @@ namespace MeetingScheduler.Repository
             this.dataAccess = dataAccess;
         }
 
-        public int Insert<T>(T businessEntity, string operationKey)
-        {
-            return ExecuteQuery(businessEntity, operationKey);
-        }
-        public int Delete<T>(T persistenceId, string operationKey)
-        {
-            return ExecuteQuery(persistenceId, operationKey);
-        }
-        public int Update<T>(T businessEntity, string operationKey)
-        {
-            return ExecuteQuery(businessEntity, operationKey);
-        }
-        public IEnumerable<Tout> Select<Tin, Tout>(Tin businessEntity, string operationKey) where Tout :class
-        {
-            var query = queryManagement.GetQueryFromResource(operationKey);
-            var param = queryManagement.GetParameters(businessEntity);
-
-            var dr = (SqlDataReader)dataAccess.ExecuteDataReader(query, param);
-
-            while (dr.Read())
-                yield return BuildEntity<Tout>(dr);
-        }
-
-        private int ExecuteQuery<T>(T businessEntity, string operationKey)
-        {
-            var query = queryManagement.GetQueryFromResource(operationKey);
-            var param = queryManagement.GetParameters(businessEntity);
-
-            return dataAccess.Execute(query, param);
-        }
         private static T BuildEntity<T>(IDataRecord record) where T : class
         {
             var instance = (T)Activator.CreateInstance(typeof(T));
@@ -76,6 +46,24 @@ namespace MeetingScheduler.Repository
             }
             return instance;
             
+        }
+
+        private string GetQuery(string key)
+        {
+            return queryManagement.GetQueryFromResource(key);
+        }
+        
+        public int ExecuteCommand(string operationKey, IEnumerable<KeyValuePair<string, object>> param)
+        {
+            var query = GetQuery(operationKey);
+            return dataAccess.Execute(query, param);
+        }
+
+        public IEnumerable<Tout> ExecuteQuery<Tout>(string operationKey, IEnumerable<KeyValuePair<string, object>> param) where Tout : class
+        {
+            var dr = (SqlDataReader)dataAccess.ExecuteDataReader(GetQuery(operationKey), param);
+            while (dr.Read())
+                yield return BuildEntity<Tout>(dr);
         }
     }
 }

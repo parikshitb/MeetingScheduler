@@ -26,7 +26,6 @@ namespace MeetingScheduler.Repository
             }
             return param;
         }
-
         public string GetQueryFromResource(string resourceName)
         {
             switch (resourceName)

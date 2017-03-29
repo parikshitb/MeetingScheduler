@@ -23,16 +23,12 @@ namespace MeetingScheduler.Controllers
         [HttpPost]
         public string SignIn(User user)
         {
-            //Return : 
-
             int userId = userSignIn.SignIn(user);
             string jwt = null;
             if (userId > 0)
-                jwt = tokenHandler.CreateToken(user.Username);
+                jwt = tokenHandler.CreateToken(userId, user.Username);
             if (!string.IsNullOrEmpty(jwt))
-            {
                 return jwt;
-            }
             throw new Exception();
         }
 

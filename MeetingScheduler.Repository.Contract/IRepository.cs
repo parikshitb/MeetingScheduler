@@ -4,9 +4,8 @@ namespace MeetingScheduler.Repository.Contract
 {
     public interface IRepository
     {
-        int Insert<T>(T businessEntity, string operationKey);
-        int Delete<T>(T businessEntity, string operationKey);
-        int Update<T>(T businessEntity, string operationKey);
-        IEnumerable<Tout> Select<Tin, Tout>(Tin businessEntity, string operationKey) where Tout : class;
+        //Try Separating Command and Query
+        int ExecuteCommand(string operationKey, IEnumerable<KeyValuePair<string, object>> param);
+        IEnumerable<Tout> ExecuteQuery<Tout>(string operationKey, IEnumerable<KeyValuePair<string, object>> param) where Tout : class;
     }
 }

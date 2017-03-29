@@ -25,9 +25,10 @@ namespace MeetingScheduler.Implementation
         }
         public int SignIn(User user)
         {
-            //Call repository and check if user and password match.
-            //create token and return
-            var dbUser = repository.Select<User, User>(user, "SIGNIN").FirstOrDefault();
+            var param = new Dictionary<string, object>();
+            param.Add(nameof(user.Username), user.Username);
+            param.Add(nameof(user.Password), user.Password);
+            var dbUser = repository.ExecuteQuery<User>("SIGNIN", param).FirstOrDefault();
             if (dbUser != null)
                 return dbUser.UserId;
             throw new Exception("Incorrect User or Password");

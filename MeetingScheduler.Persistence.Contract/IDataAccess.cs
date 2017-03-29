@@ -5,11 +5,11 @@ namespace MeetingScheduler.Persistence.Contract
 {
     public interface IDataAccess
     {
-        int Execute(string query, ICollection<KeyValuePair<string, object>> param);
+        int Execute(string query, IEnumerable<KeyValuePair<string, object>> param);
         //IList<object> Select(string query, ICollection<KeyValuePair<string, object>> param);
 
         //object ExecuteScalar(string query, ICollection<KeyValuePair<string, object>> param);
-        IDataReader ExecuteDataReader(string query, ICollection<KeyValuePair<string, object>> param);
+        IDataReader ExecuteDataReader(string query, IEnumerable<KeyValuePair<string, object>> param);
         void CloseConnection();
     }
 }

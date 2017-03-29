@@ -12,14 +12,15 @@ namespace MeetingScheduler.Authentication
 {
     public class Jwt : IToken
     {
-        public string CreateToken(string username)
+        public string CreateToken(int userId, string username)
         {
             var descriptor = new SecurityTokenDescriptor
             {
                 Issuer = AuthenticationConstants.JWT_ISSUER,
                 Expires = DateTime.UtcNow.AddMinutes(AuthenticationConstants.JWT_EXPIRY_MIN),
                 Subject = new ClaimsIdentity(new[] {
-                    new Claim(ClaimTypes.Name, username)
+                    new Claim(ClaimTypes.Name, username),
+                    new Claim(ClaimTypes.NameIdentifier, userId.ToString())
                 }),
                 SigningCredentials = new SigningCredentials(
                         new SymmetricSecurityKey(Convert.FromBase64String(AuthenticationConstants.JWT_KEY)),

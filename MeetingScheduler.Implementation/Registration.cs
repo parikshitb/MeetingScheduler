@@ -2,6 +2,7 @@
 using MeetingScheduler.Entity;
 using MeetingScheduler.Repository.Contract;
 using System;
+using System.Collections.Generic;
 
 namespace MeetingScheduler.Implementation
 {
@@ -11,14 +12,15 @@ namespace MeetingScheduler.Implementation
         public Registration(IRepository repository)
         {
             if (repository == null)
-            {
                 throw new ArgumentNullException(nameof(repository));
-            }
             this.repository = repository;
         }
         public int SignUp(Visitor visitor)
         {
-            var userId = repository.Insert(visitor, "SIGNUP");
+            var param = new Dictionary<string, object>();
+            param.Add(nameof(visitor.Username), visitor.Username);
+            param.Add(nameof(visitor.Password), visitor.Password);
+            var userId = repository.ExecuteCommand("SIGNUP", param);
             return userId;
         }
 

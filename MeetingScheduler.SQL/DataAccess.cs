@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Sql;
 using System.Data.SqlClient;
 using MeetingScheduler.Persistence.Contract;
 using System.Data;
@@ -38,18 +34,21 @@ namespace MeetingScheduler.SQL
         {
             throw new NotImplementedException();
         }
-        private SqlCommand PrepareCommand(string query, ICollection<KeyValuePair<string,object>> param)
+        private SqlCommand PrepareCommand(string query, IEnumerable<KeyValuePair<string,object>> param)
         {
             conn.Open();
 
             var cmd = new SqlCommand(query, conn);
-            foreach (var item in param)
+            if (param != null)
             {
-                cmd.Parameters.AddWithValue(item.Key, item.Value);
-            }
+                foreach (var item in param)
+                {
+                    cmd.Parameters.Add(new SqlParameter(string.Format("@{0}", item.Key.ToLower()), item.Value ?? DBNull.Value));
+                }
+            } 
             return cmd;
         }
-        public int Execute(string query, ICollection<KeyValuePair<string, object>> param)
+        public int Execute(string query, IEnumerable<KeyValuePair<string, object>> param)
         {
             int rowsAffected=-1;
             
@@ -71,7 +70,7 @@ namespace MeetingScheduler.SQL
             throw new NotImplementedException();
         }
 
-        public IDataReader ExecuteDataReader(string query, ICollection<KeyValuePair<string, object>> param)
+        public IDataReader ExecuteDataReader(string query, IEnumerable<KeyValuePair<string, object>> param)
         {
             using (SqlCommand cmd = PrepareCommand(query, param))
             {
